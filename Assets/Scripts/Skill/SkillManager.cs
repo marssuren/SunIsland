@@ -21,11 +21,16 @@ public class SkillManager : MonoBehaviour
 	}
 	public Action<ActorBase> GetSkillById(int _id)
 	{
-		return SkillDic[_id];
+        if (null!=_id)
+        {
+            //Debug.LogError(_id);
+            return SkillDic[_id]; 
+        }
+        return null;
 	}
 	private void skill1(ActorBase _actorBase)
 	{
-
+        _actorBase.GetComponent<EnermyLogic>().GetInjured(10);
 	}
 
 }
