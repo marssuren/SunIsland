@@ -110,4 +110,5 @@ public abstract class AbstractDungeon
 	{
 
 	}
+    public static 
 }

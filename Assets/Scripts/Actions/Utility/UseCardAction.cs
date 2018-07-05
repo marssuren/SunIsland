@@ -25,10 +25,28 @@ public class UseCardAction : AbstractGameAction
 			AbstractDungeon.Player.powers[i].OnUseCard(_card,this);
 		}
 
-		for (int i = 0; i < AbstractDungeon.Player.; i++)
+		for (int i = 0; i < AbstractDungeon.Player.Relics.Count; i++)
 		{
-			
+		    if (!_card.IsNotTriggerOnUse)
+		    {
+                AbstractDungeon.Player.Relics[i].OnUseCard(_card,this);
+
+            }
 		}
+
+	    for (int i = 0; i < AbstractDungeon.Player.Hand.Group.Count; i++)
+	    {
+	        if (!_card.IsNotTriggerOnUse)
+	        {
+	            AbstractDungeon.Player.Hand.Group[i].TriggerOnCardPlayed(_card);
+
+            }
+	    }
+
+	    for (int i = 0; i < AbstractDungeon.; i++)
+	    {
+	        
+	    }
 	}
 
 

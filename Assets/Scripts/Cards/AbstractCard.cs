@@ -232,6 +232,10 @@ public abstract class AbstractCard : IComparable<AbstractCard>
 	{
 
 	}
+    public void TriggerOnCardPlayed(AbstractCard _cardPlayed)
+    {
+
+    }
 }
 public enum CardType
 {

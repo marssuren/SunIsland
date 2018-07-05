@@ -18,7 +18,7 @@ public class AbstractPlayer : AbstractCreature
 	public List<AbstractRelic> Relics;
 	public int PotionSlots;
 	public List<AbstractRelic> Potions;
-	public 
+	//public 
 	public override void Damage(DamageInfo _damageInfo)
 	{
 		throw new System.NotImplementedException();
