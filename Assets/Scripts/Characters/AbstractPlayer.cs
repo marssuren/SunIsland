@@ -9,6 +9,16 @@ public class AbstractPlayer : AbstractCreature
 	public PlayerClass ChosenClass;
 	public int GameHandSize;
 	public int MasterHandSize;
+	public CardGroup MasterDeck;
+	public CardGroup DrawPile;
+	public CardGroup Hand;
+	public CardGroup DiscardPile;
+	public CardGroup ExhaustPile;
+	public CardGroup Limbo;
+	public List<AbstractRelic> Relics;
+	public int PotionSlots;
+	public List<AbstractRelic> Potions;
+	public 
 	public override void Damage(DamageInfo _damageInfo)
 	{
 		throw new System.NotImplementedException();

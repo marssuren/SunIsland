@@ -299,23 +299,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
-      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
-      <Name>Unity.PackageManagerUI.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.StandardEvents.csproj">
       <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
       <Name>UnityEditor.StandardEvents</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
+      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
+      <Name>Unity.PackageManagerUI.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\GameActionManager.cs" />
+    <Compile Include="Assets\Scripts\Actions\Utility\UseCardAction.cs" />
     <Compile Include="Assets\Scripts\Cards\AbstractCard.cs" />
     <Compile Include="Assets\Scripts\Cards\CardGroup.cs" />
     <Compile Include="Assets\Scripts\Cards\DamageInfo.cs" />
     <Compile Include="Assets\Scripts\Characters\AbstractPlayer.cs" />
     <Compile Include="Assets\Scripts\Core\AbstractCreature.cs" />
     <Compile Include="Assets\Scripts\Dungeons\AbstractDungeon.cs" />
+    <Compile Include="Assets\Scripts\Monsters\AbstractMonster.cs" />
     <Compile Include="Assets\Scripts\Powers\AbstractPower.cs" />
+    <Compile Include="Assets\Scripts\Relics\AbstractRelic.cs" />
+    <Compile Include="Assets\Scripts\Room\MapRoomNode.cs" />
+    <Compile Include="Assets\Scripts\Scenes\AbstractScene.cs" />
+    <Compile Include="Assets\Scripts\VFX\AbstractGameEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\GainPowerEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd\TCG_Card_Design\ReadMe.txt" />

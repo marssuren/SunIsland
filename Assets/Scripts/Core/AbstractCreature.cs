@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractCreature
+public abstract class AbstractCreature:MonoBehaviour
 {
 	public string Name;
 	public string Id;

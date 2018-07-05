@@ -200,6 +200,10 @@ public abstract class AbstractCard : IComparable<AbstractCard>
 		}
 		IsUpgradeCost = true;
 	}
+	//private string desetupKeyword(string _keyword)
+	//{
+		
+	//}
 	public AbstractCard MakeStatEquivalentCopy()
 	{
 		AbstractCard tAbstractCard = MakeCopy();
@@ -224,7 +228,10 @@ public abstract class AbstractCard : IComparable<AbstractCard>
 		tAbstractCard.Misc = Misc;
 		return tAbstractCard;
 	}
+	public bool IsHasEnoughEnergy()
+	{
 
+	}
 }
 public enum CardType
 {
