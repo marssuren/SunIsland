@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbstractRelic : IComparable<AbstractRelic>
+public abstract class AbstractRelic : IComparable<AbstractRelic>
 {
     public static string[] Msg;
     public static string[] Label;
@@ -46,6 +46,10 @@ public class AbstractRelic : IComparable<AbstractRelic>
     {
         throw new NotImplementedException();
     }
+	public void OnChestOpen(bool _isBossChest)
+	{
+
+	}
 }
 
 public enum RelicTier

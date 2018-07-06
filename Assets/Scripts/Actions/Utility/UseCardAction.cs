@@ -30,7 +30,6 @@ public class UseCardAction : AbstractGameAction
 		    if (!_card.IsNotTriggerOnUse)
 		    {
                 AbstractDungeon.Player.Relics[i].OnUseCard(_card,this);
-
             }
 		}
 
@@ -39,14 +38,21 @@ public class UseCardAction : AbstractGameAction
 	        if (!_card.IsNotTriggerOnUse)
 	        {
 	            AbstractDungeon.Player.Hand.Group[i].TriggerOnCardPlayed(_card);
-
             }
 	    }
 
-	    for (int i = 0; i < AbstractDungeon.; i++)
+	    for (int i = 0; i < AbstractDungeon.Player.DiscardPile.Group.Count; i++)
 	    {
-	        
+			if(!_card.IsNotTriggerOnUse)
+			{
+				AbstractDungeon.Player.DiscardPile.Group[i].TriggerOnCardPlayed(_card);
+			}
 	    }
+
+		for (int i = 0; i < AbstractDungeon.GetCurrRoom().; i++)
+		{
+			
+		}
 	}
 
 

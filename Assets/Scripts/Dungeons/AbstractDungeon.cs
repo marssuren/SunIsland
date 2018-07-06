@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+//using UnityEngine;
 
 public abstract class AbstractDungeon
 {
@@ -13,8 +14,8 @@ public abstract class AbstractDungeon
 	public static AbstractPlayer Player;
 	//public static List<abstract>
 	protected static float shrineChance;
-	private static bool firstChest;
-	private static bool encounteredCursedChest;
+	private static bool isFirstChest;
+	private static bool isEncounteredCursedChest;
 	protected static float CardUpgradeedChance;
 	public static AbstractCard TransformedCard;
 	public static bool LoadingPostCombat;
@@ -110,5 +111,26 @@ public abstract class AbstractDungeon
 	{
 
 	}
-    public static 
+	public static AbstractRoom GetCurrRoom()
+	{
+		return CurMapNode.GetRoom();
+	}
+	public static MapRoomNode GetCurMapNode()
+	{
+		return CurMapNode;
+	}
+	public static void SetCurMapNode(MapRoomNode _curMapNode)
+	{
+
+	}
+
+	public static AbstractChest GetRandomChest()
+	{
+		int tRoll = Random.Range(0, 99);
+		if (tRoll<SmallChestChance)
+		{
+			isFirstChest = false;
+			return new SmallChest();
+		}
+	}
 }

@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapRoomNode : MonoBehaviour {
+public class MapRoomNode
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private List<MapRoomNode> parents;
+	public AbstractRoom Room;
+	public bool IsTaken;
+	public bool IsHighlighted;
+
+	//public bool IsConnectedTo(MapRoomNode _node)
+	//{
+
+	//}
+	public AbstractRoom GetRoom()
+	{
+		return Room;
 	}
 }

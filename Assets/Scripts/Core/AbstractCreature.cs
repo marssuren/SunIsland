@@ -70,4 +70,11 @@ public abstract class AbstractCreature:MonoBehaviour
 			Gold += _amount;
 		}
 	}
+	public void ApplyEndOfTurnTriggers()
+	{
+		for (int i = 0; i < powers.Count; i++)
+		{
+			powers[i].AtEndOfTurn(IsPlayer);
+		}
+	}
 }

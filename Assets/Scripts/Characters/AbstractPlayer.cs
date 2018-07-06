@@ -24,6 +24,13 @@ public class AbstractPlayer : AbstractCreature
 		throw new System.NotImplementedException();
 		
 	}
+	public void ApplyStartOfTurnOrbs()
+	{
+		if (!AbstractDungeon.Player)
+		{
+			
+		}
+	}
 }
 public enum PlayerClass
 {
