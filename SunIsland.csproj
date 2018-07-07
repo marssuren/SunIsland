@@ -310,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\ClearCardQueueAction.cs" />
     <Compile Include="Assets\Scripts\Actions\GameActionManager.cs" />
     <Compile Include="Assets\Scripts\Actions\Utility\UseCardAction.cs" />
     <Compile Include="Assets\Scripts\Cards\AbstractCard.cs" />
@@ -337,8 +338,11 @@
     <Compile Include="Assets\Scripts\Rooms\AbstractRoom.cs" />
     <Compile Include="Assets\Scripts\Rooms\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\Scenes\AbstractScene.cs" />
+    <Compile Include="Assets\Scripts\UI\Panels\AbstractPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\Panels\EnergyPanel.cs" />
     <Compile Include="Assets\Scripts\VFX\AbstractGameEffect.cs" />
     <Compile Include="Assets\Scripts\VFX\Combat\GainPowerEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\RefreshEnergyEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd\TCG_Card_Design\ReadMe.txt" />

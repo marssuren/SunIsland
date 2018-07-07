@@ -29,6 +29,10 @@ public class CardGroup
 		}
 		
 	}
+	public bool IsContains(AbstractCard _card)
+	{
+		return Group.Contains(_card);
+	}
 
 }
 public enum CardGroupType

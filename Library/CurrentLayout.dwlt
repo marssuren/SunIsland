@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 48
+  controlID: 11
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 0
-  controlID: 47
+  controlID: 10
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_MinSize: {x: 1121, y: 342}
   m_MaxSize: {x: 26016, y: 10021}
   vertical: 0
-  controlID: 177
+  controlID: 66
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -362,9 +362,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d2050000
+    m_SelectedIDs: 90330000
     m_LastClickedID: 0
-    m_ExpandedIDs: 92faffff00000000
+    m_ExpandedIDs: e6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -459,7 +459,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Actions
+    - Assets/Scripts/VFX/Combat
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -471,7 +471,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 26250000
     m_LastClickedID: 9510
-    m_ExpandedIDs: 000000008e2c0000282d00002c2d0000b22d0000a62e0000f62f0000be300000c0310000ec310000ee310000fa310000a0320000a8320000ee3200001e330000de330000143400006a3400006e340000ae340000283600002a3600002c3600002e3600003036000032360000
+    m_ExpandedIDs: 00000000a02900000a2a00003c2a0000402a0000602a0000c62a0000ba2b00004a2c00000c2d0000a22d0000d62d00004a2e0000da2e0000062f0000082f0000142f0000ba2f0000c22f00000830000038300000f83000002e3100008431000088310000c83100004433000046330000483300004a3300004c3300004e330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -496,10 +496,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 103}
+    scrollPos: {x: 0, y: 215}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e2c0000282d00002c2d00004c2d0000b22d0000a62e0000f62f0000be300000c0310000ec310000ee310000fa310000a0320000a8320000ee3200001e330000de330000143400006a3400006e340000ae340000283600002a3600002c3600002e3600003036000032360000403600004e36000068360000ac360000
+    m_ExpandedIDs: 00000000a02900000a2a00003c2a0000402a0000602a0000c62a0000ba2b00004a2c00000c2d0000a22d0000d62d00004a2e0000da2e0000062f0000082f0000142f0000ba2f0000c22f00000830000038300000f83000002e3100008431000088310000c83100004433000046330000483300004a3300004c3300004e3300007233000078330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
