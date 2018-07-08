@@ -19,8 +19,24 @@ public abstract class AbstractMonster : AbstractCreature
 	private float hoverTime;
 	public bool IsCannotEscape;
 	public List<DamageInfo> DamageInfoList;
-	public Intent MonsterIntent;
+    private EnemyMoveInfo move;
+    public List<byte> MoveHistory;
+    public List<AbstractGameEffect> IntentFlash;
+    private List<AbstractGameEffect> IntentVFX;
+    public byte NextMove;
+
+    public Intent MonsterIntent;
 	public Intent TipIntent;
+    private Texture intentImg;
+    private Texture intentBg;
+    private int intentDmg;
+    private int intentBaseDmg;
+    private int intentMultiAmt;
+    private bool isMultiDmg;
+    public string MoveName;
+    public static string[] Moves;
+    public static string[] Dialog;
+
 
 	public static IEnumerator<AbstractMonster> SortByCollider;
 
@@ -69,6 +85,12 @@ public abstract class AbstractMonster : AbstractCreature
 
 		}
 	}
+
+    public void CreateIntent()
+    {
+        this.intent = move.InfoIntent;
+
+    }
 }
 public enum EnemyType
 {

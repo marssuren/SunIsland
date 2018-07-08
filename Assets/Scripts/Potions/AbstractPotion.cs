@@ -15,8 +15,8 @@ public abstract class AbstractPotion : MonoBehaviour
 	public bool IsThrown;
 	public bool IsTargetRequired;
 
-	public bool IsCanUse()
+	public bool CanUse()
 	{
-		return AbstractDungeon.GetCurrRoom().
+		return AbstractDungeon.GetCurrRoom()
 	}
 }
