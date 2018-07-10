@@ -91,6 +91,39 @@ public abstract class AbstractMonster : AbstractCreature
         this.intent = move.InfoIntent;
 
     }
+
+    public void Damage(DamageInfo _info)
+    {
+        if (_info.Output>0&&IsHasPower("IntangiblePlayer"))
+        {
+            _info.Output = 1;
+        }
+
+        int tDamageAmount = _info.Output;
+        if (!IsDying&&!IsEscaping)
+        {
+            if (tDamageAmount<0)
+            {
+                tDamageAmount = 0;
+            }
+
+            bool isHadBlock = true;
+            if (CurrentBlock==0)
+            {
+                isHadBlock = false;
+            }
+
+            bool tWeakenedToZero = tDamageAmount == 0;
+            tDamageAmount = DecrementBlock(_info, tDamageAmount);
+            if (_info.Owner is AbstractPlayer)
+            {
+                for (int i = 0; i < AbstractDungeon.Player.Relics.Count; i++)
+                {
+                    AbstractDungeon.Player.Relics[i].on
+                }
+            }
+        }
+    }
 }
 public enum EnemyType
 {

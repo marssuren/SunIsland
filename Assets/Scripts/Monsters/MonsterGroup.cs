@@ -29,11 +29,36 @@ public class MonsterGroup
         Monsters.Insert(0, _monster);
     }
 
-    public MonsterGroup(AbstractMonster _monster) : this(new AbstractMonster[] {_monster})
+    public MonsterGroup(AbstractMonster _monster) : this(new AbstractMonster[] { _monster })
     {
 
     }
 
+    public bool AreMonstersBasicallyDead()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (!Monsters[i].IsDying || !Monsters[i].IsEscaping)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void ApplyPreTurnLogic()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (!Monsters[i].IsDying&&!Monsters[i].IsEscaping)
+            {
+                if (!Monsters[i].)
+                {
+                    
+                }
+            }
+        }
+    }
     public void ShowIntent()
     {
         for (int i = 0; i < Monsters.Count; i++)

@@ -17,6 +17,6 @@ public abstract class AbstractPotion : MonoBehaviour
 
 	public bool CanUse()
 	{
-		return AbstractDungeon.GetCurrRoom()
+		return AbstractDungeon.GetCurrRoom().Monsters!=null &&!AbstractDungeon.GetCurrRoom().Monsters.
 	}
 }

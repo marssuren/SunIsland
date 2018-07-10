@@ -9,7 +9,8 @@ public abstract class AbstractRoom
     public List<AbstractRelic> Relics = new List<AbstractRelic>();
     public List<RewardItem> rewards = new List<RewardItem>();
     public RoomPhase Phase;
-    public 
+    public AbstractEvent Event = null;
+    public MonsterGroup Monsters;
     protected string mapSymbol;
     protected Texture mapImg;
     protected Texture mapImgOutline;

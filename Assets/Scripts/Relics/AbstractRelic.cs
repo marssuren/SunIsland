@@ -29,6 +29,185 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
 
     }
 
+    public void OnEvokeOrb(AbstractOrb _ammo)
+    {
+
+    }
+
+    public void OnPlayCard(AbstractCard _card, AbstractMonster _monster)
+    {
+
+    }
+
+    public void OnObtainCard(AbstractCard _card)
+    {
+
+    }
+
+    public void OnGainGold()
+    {
+
+    }
+
+    public void OnLoseGold()
+    {
+
+    }
+
+    public void OnEquip()
+    {
+
+    }
+
+    public void OnUnEquip()
+    {
+
+    }
+
+    public void AtPreBattle()
+    {
+
+    }
+
+    public void AtBattleStart()
+    {
+
+    }
+
+    public void AtBattleStartPreDraw()
+    {
+
+    }
+
+    public void AtTurnStart()
+    {
+
+    }
+
+    public void OnPlayerEndTurn()
+    {
+
+    }
+
+    public void OnBloodied()
+    {
+
+    }
+
+    public void OnNotBloodied()
+    {
+
+    }
+
+    public int OnPlayerGainBlock(int _blockAmount)
+    {
+        return _blockAmount;
+    }
+
+    public int OnPlayerGainedBlock(float _blockAmount)
+    {
+        return Mathf.FloorToInt(_blockAmount);
+    }
+
+    public int OnPlayerHeal(int _healAmount)
+    {
+        return _healAmount;
+    }
+
+    public void OnMeditate()
+    {
+
+    }
+
+    public void OnEnergyRecharge()
+    {
+
+    }
+
+    public void OnRest()
+    {
+
+    }
+
+    public void OnRitual()
+    {
+
+    }
+
+    public void OnEnterRestRoom()
+    {
+
+    }
+
+    public void OnRefreshHand()
+    {
+
+    }
+
+    public void OnShuffle()
+    {
+    }
+
+    public void OnSmith()
+    {
+
+    }
+    public void OnAttack(DamageInfo _info, int _damageAmount, AbstractCreature _target)
+    {
+
+    }
+
+    public int OnAttacked(DamageInfo _info, int _damageAmount)
+    {
+        return _damageAmount;
+    }
+
+    public int OnAttackedMonster(DamageInfo _info, int _damageAmount)
+    {
+        return _damageAmount;
+    }
+
+    public void OnExhaust(AbstractCard _card)
+    {
+
+    }
+
+    public void OnTrigger()
+    {
+
+    }
+
+    public void OnTrigger(AbstractCreature _target)
+    {
+
+    }
+
+    public bool CheckTrigger()
+    {
+        return false;
+    }
+
+    public void OnEnterRoom(AbstractRoom _room)
+    {
+
+    }
+
+    public void OnCardDraw(AbstractCard _card)
+    {
+
+    }
+
+    public void OnDrawOrDiscard()
+    {
+
+    }
+
+    public void OnMonsterDeckChange()
+    {
+
+    }
+
+
     public void OnUsePotion()
     {
 
@@ -42,14 +221,21 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
 
     }
 
+
+    public void OnChestOpen(bool _isBossChest)
+    {
+
+    }
+
+    public bool IsCanPlay(AbstractCard _card)
+    {
+        return true;
+    }
+
     public int CompareTo(AbstractRelic other)
     {
         throw new NotImplementedException();
     }
-	public void OnChestOpen(bool _isBossChest)
-	{
-
-	}
 }
 
 public enum RelicTier
