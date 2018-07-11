@@ -49,11 +49,41 @@ public class UseCardAction : AbstractGameAction
 			}
 	    }
 
-		for (int i = 0; i < AbstractDungeon.GetCurrRoom().; i++)
+		for (int i = 0; i < AbstractDungeon.Player.DrawPile.Group.Count; i++)
 		{
-			
+		    AbstractCard tCard = AbstractDungeon.Player.DrawPile.Group[i];
+		    if (!_card.IsNotTriggerOnUse)
+		    {
+		        tCard.TriggerOnCardPlayed(_card);
+		    }
 		}
+
+	    for (int i = 0; i < AbstractDungeon.GetCurrRoom().Monsters.Monsters.Count; i++)
+	    {
+	        AbstractMonster tMonster = AbstractDungeon.GetCurrRoom().Monsters.Monsters[i];
+	        for (int j = 0; j < tMonster.powers.Count; j++)
+	        {
+	            if (!_card.IsNotTriggerOnUse)
+	            {
+	                tMonster.powers[i].OnUseCard(_card,this);
+	            }
+            }
+	    }
+
+	    if (IsExhaustCard)
+	    {
+	        GameActionType = ActionType.Exhaust;
+	    }
+	    else
+	    {
+	        GameActionType = ActionType.Use;
+	    }
 	}
+
+    public UseAction(AbstractCard _targetCard) : this(_targetCard, (AbstractCreature) null)
+    {
+
+    }
 
 
 }

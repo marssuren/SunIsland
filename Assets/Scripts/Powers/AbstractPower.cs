@@ -38,7 +38,40 @@ public class AbstractPower : MonoBehaviour, IComparable<AbstractPower>
 	{
 		return Priority - other.Priority;
 	}
-	public float AtDamageGive(float _damage, DamageType _damageType)
+
+    public void UpdateDescription()
+    {
+
+    }
+    public void StackPower(int _stackAmount)            //叠加buff
+    {
+        if (Amount == -1)                                 //buff无法叠加
+        {
+            Debug.Log(Name + "does not stack");
+        }
+        else
+        {
+            Amount += _stackAmount;
+        }
+    }
+
+    public void ReducePower(int _reduceAmount)
+    {
+        if (Amount - _reduceAmount <= 0)
+        {
+            Amount = 0;
+        }
+        else
+        {
+            Amount -= _reduceAmount;
+        }
+    }
+
+    public string GetHoverMessage()
+    {
+        return Name + ".." + Description;
+    }
+    public float AtDamageGive(float _damage, DamageType _damageType)
 	{
 		return _damage;
 	}
@@ -181,6 +214,8 @@ public class AbstractPower : MonoBehaviour, IComparable<AbstractPower>
 	{
 
 	}
+
+    
 
 
 

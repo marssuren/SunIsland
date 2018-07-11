@@ -59,6 +59,118 @@ public abstract class AbstractCreature : MonoBehaviour
             }
         }
     }
+
+    public void LoseBlock(int _amount,bool _isNoAnimation)
+    {
+        bool tIsEffect = false;
+        if (CurrentBlock!=0)
+        {
+            tIsEffect = true;
+        }
+
+        CurrentBlock -= _amount;
+        if (CurrentBlock<0)
+        {
+            CurrentBlock = 0;
+        }
+
+        if (CurrentBlock==0&&tIsEffect)
+        {
+            if (!_isNoAnimation)
+            {
+                //AbstractDungeon.EffectList.Add(new HbBlockBrokenEffect());
+            }
+        }
+    }
+
+    
+    public void LoseBlock()
+    {
+        LoseBlock(CurrentBlock);
+    }
+    public void LoseBlock(bool _isNoAnimation)
+    {
+        LoseBlock(CurrentBlock,_isNoAnimation);
+    }
+    public void LoseBlock(int _amount)
+    {
+        LoseBlock(_amount,false);
+    }
+
+    public void AddPower(AbstractPower _powerToApply)
+    {
+        bool tIsHasBuffAlready = false;
+        for (int i = 0; i < powers.Count; i++)
+        {
+            if (powers[i].ID==_powerToApply.ID)
+            {
+                powers[i].StackPower(_powerToApply.Amount);
+                powers[i].UpdateDescription();
+                tIsHasBuffAlready = true;
+            }
+        }
+
+        if (!tIsHasBuffAlready)
+        {
+            powers.Add(_powerToApply);
+            if (IsPlayer)
+            {
+                int tBuffCount = 0;
+                for (int i = 0; i < powers.Count; i++)
+                {
+                    if (powers[i].Type==PowerType.Buff)
+                    {
+                        tBuffCount++;
+                    }
+                }
+
+                if (tBuffCount>=10)
+                {
+                    //UnlockTracker.unlockAchievement("POWERFUL");
+                }
+            }
+        }
+    }
+
+    public void ApplyStartOfTurnPowers()
+    {
+        for (int i = 0; i < powers.Count; i++)
+        {
+            powers[i].AtStartOfTurn();
+        }
+    }
+
+    public void ApplyTurnPowers()
+    {
+        for (int i = 0; i < powers.Count; i++)
+        {
+            powers[i].DuringTurn();
+        }
+    }
+
+    public void ApplyStartOfTurnPostDrawPowers()
+    {
+        for (int i = 0; i < powers.Count; i++)
+        {
+            powers[i].AtStartOfTurnPostDraw();
+        }
+    }
+    public void ApplyEndOfTurnTriggers()
+    {
+        for (int i = 0; i < powers.Count; i++)
+        {
+            powers[i].AtEndOfTurn(IsPlayer);
+        }
+    }
+
+    //public void UpdatePowers()
+    //{
+    //    for (int i = 0; i < powers.Count; i++)
+    //    {
+    //        powers[i].upda
+    //    }
+    //}
+
     public void GainGold(int _amount)
     {
         if (_amount < 0)
@@ -70,14 +182,7 @@ public abstract class AbstractCreature : MonoBehaviour
             Gold += _amount;
         }
     }
-    public void ApplyEndOfTurnTriggers()
-    {
-        for (int i = 0; i < powers.Count; i++)
-        {
-            powers[i].AtEndOfTurn(IsPlayer);
-        }
-    }
-
+   
     public bool IsHasPower(string _targetId)
     {
         for (int i = 0; i < powers.Count; i++)

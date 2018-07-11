@@ -52,9 +52,9 @@ public class MonsterGroup
         {
             if (!Monsters[i].IsDying&&!Monsters[i].IsEscaping)
             {
-                if (!Monsters[i].)
+                if (!Monsters[i].IsHasPower("Barricade"))
                 {
-                    
+                    Monsters[i].
                 }
             }
         }
