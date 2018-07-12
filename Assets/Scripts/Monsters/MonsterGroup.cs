@@ -54,11 +54,65 @@ public class MonsterGroup
             {
                 if (!Monsters[i].IsHasPower("Barricade"))
                 {
-                    Monsters[i].
+                    Monsters[i].LoseBlock();
                 }
+                Monsters[i].ApplyStartOfTurnPowers();
             }
         }
     }
+
+    public AbstractMonster GetMonster(string _id)
+    {
+        AbstractMonster tMonster=null;
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (Monsters[i].Id == _id)
+            {
+                tMonster= Monsters[i];
+            }
+        }
+        return tMonster;
+    }
+
+    public void QueueMonsters()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (Monsters[i].IsDeadOrEscaped()&&!Monsters[i].HalfDead)
+            {
+                AbstractDungeon.ActionManager.MonsterQueue.Add(new MonsterQueueItem(Monsters[i]));
+            }
+        }
+    }
+
+    public bool HaveMonstersEscaped()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (!Monsters[i].IsEscaped)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool IsMonstersEscaping()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            if (Monsters[i].IsEscaping)
+            {
+                return true;
+            }
+        }
+
+        if (CardCrawlGame.Dungeon is )
+        {
+            
+        }
+    }
+
     public void ShowIntent()
     {
         for (int i = 0; i < Monsters.Count; i++)

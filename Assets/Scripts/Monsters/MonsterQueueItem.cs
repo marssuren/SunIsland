@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterQueueItem : MonoBehaviour {
+public class MonsterQueueItem
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+{
+    public AbstractMonster Monster;
+
+    public MonsterQueueItem(AbstractMonster _monster)
+    {
+        Monster = _monster;
+    }
 }

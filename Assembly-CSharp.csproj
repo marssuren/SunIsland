@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Cards\SoulGroup.cs" />
     <Compile Include="Assets\Scripts\Characters\AbstractPlayer.cs" />
     <Compile Include="Assets\Scripts\Core\AbstractCreature.cs" />
+    <Compile Include="Assets\Scripts\Core\CardCrawlGame.cs" />
     <Compile Include="Assets\Scripts\Dungeons\AbstractDungeon.cs" />
     <Compile Include="Assets\Scripts\Events\AbstractEvent.cs" />
     <Compile Include="Assets\Scripts\Monsters\AbstractMonster.cs" />
