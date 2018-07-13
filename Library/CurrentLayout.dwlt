@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 100
+  controlID: 106
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 342}
   m_MaxSize: {x: 8006, y: 8042}
   vertical: 0
-  controlID: 99
+  controlID: 45
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -458,7 +458,8 @@ MonoBehaviour:
     m_ScenePaths: []
     m_ShowAllHits: 0
     m_SearchArea: 0
-    m_Folders: []
+    m_Folders:
+    - Assets/Scripts/Characters
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -495,10 +496,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 180}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e22900004c2a0000822a0000a22a0000182b0000fe2b0000882c0000902c0000522d0000e82d00001c2e0000902e00004c2f00004e2f00005a2f00007a2f000000300000083000004c3000007c3000003a31000070310000c6310000ca3100000a32000086330000883300008a3300008c3300008e33000090330000
+    m_ExpandedIDs: 00000000e22900004c2a00007e2a0000822a0000a22a0000082b0000182b0000fe2b0000882c0000902c0000522d0000e82d00001c2e0000902e0000202f00004c2f00004e2f00005a2f00007a2f000000300000083000004c3000007c3000003a31000070310000c6310000ca3100000a32000086330000883300008a3300008c3300008e33000090330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

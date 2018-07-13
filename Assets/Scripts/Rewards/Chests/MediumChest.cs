@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MediumChest  {
+public class MediumChest:AbstractChest  {
 
 	// Use this for initialization
 	void Start () {

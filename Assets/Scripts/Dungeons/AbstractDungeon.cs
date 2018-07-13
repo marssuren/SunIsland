@@ -83,6 +83,7 @@ public abstract class AbstractDungeon
 	public static MapRoomNode NextRoom;
 	public static List<string> RelicsToRemoveOnStart;
 	public static int BossCount;
+    public static Random random;
 
 	public AbstractDungeon(string _name, string _levelId, AbstractPlayer _player, List<string> _newSpecialOneTimeEventList)
 	{
@@ -126,11 +127,45 @@ public abstract class AbstractDungeon
 
 	public static AbstractChest GetRandomChest()
 	{
-		int tRoll = Random.Range(0, 99);
-		if (tRoll<SmallChestChance)
+	    int tRoll = random.Next(0, 99);
+
+        if (tRoll<SmallChestChance)
 		{
 			isFirstChest = false;
 			return new SmallChest();
 		}
+        if (tRoll<MediumChestChance+SmallChestChance)
+        {
+            isFirstChest = false;
+            return new MediumChest();
+        }
+
+	    if (tRoll<LargeChestChance+MediumChestChance+SmallChestChance)
+	    {
+	        isFirstChest = false;
+	        return new LargeChest();
+        }
+
+	    if (isFirstChest)
+	    {
+	        isFirstChest = false;
+	        return new SmallChest();
+	    }
+
+	    if (!isEncounteredCursedChest)
+	    {
+	        isEncounteredCursedChest = true;
+            return new CursedChest();
+	    }
+
+	    return new SmallChest();
 	}
+
+    protected static void GenerateMap()
+    {
+        if (Player.)
+        {
+            
+        }
+    }
 }

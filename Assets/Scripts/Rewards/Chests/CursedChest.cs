@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CursedChest  {
+public class CursedChest :AbstractChest {
 
 	// Use this for initialization
 	void Start () {

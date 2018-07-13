@@ -17,8 +17,10 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
     public RelicTier Tier;
     public string ImgURL;
     protected bool IsPulse;
+    private int smallNumber;
     public bool IsSeen;
     public bool IsDone;
+    public bool IsObtained;
     public bool IsDiscarded;
 
     public AbstractRelic(string _setId, string _imgName, RelicTier _tier, LandingSound _sfx)
@@ -26,6 +28,7 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
         IsPulse = false;
         IsDone = false;
         relicId = _setId;
+        smallNumber = 23;
 
     }
 
@@ -230,6 +233,24 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
     public bool IsCanPlay(AbstractCard _card)
     {
         return true;
+    }
+
+    public void ReOrgnaizeObtain(AbstractPlayer _player, int _slot, bool _isCallOnEquip, int _relicAmount)
+    {
+        IsDone = true;
+        IsObtained = true;
+        _player.Relics.Add(this);
+        //if (_relicAmount>smallNumber)
+        //{
+            
+        //}
+        if (_isCallOnEquip)
+        {
+            OnEquip();
+            
+
+        }
+
     }
 
     public int CompareTo(AbstractRelic other)

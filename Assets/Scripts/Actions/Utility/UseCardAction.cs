@@ -80,10 +80,14 @@ public class UseCardAction : AbstractGameAction
 	    }
 	}
 
-    public UseAction(AbstractCard _targetCard) : this(_targetCard, (AbstractCreature) null)
+    public UseCardAction(AbstractCard _targetCard) : this(_targetCard, (AbstractCreature) null)
     {
 
     }
 
+    void Update()
+    {
+
+    }
 
 }

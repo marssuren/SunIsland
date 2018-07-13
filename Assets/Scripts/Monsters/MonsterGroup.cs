@@ -101,17 +101,31 @@ public class MonsterGroup
     {
         for (int i = 0; i < Monsters.Count; i++)
         {
+            if (Monsters[i].NextMove==99)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool HasMonsterEscaped()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
             if (Monsters[i].IsEscaping)
             {
                 return true;
             }
         }
 
-        if (CardCrawlGame.Dungeon is )
+        if (CardCrawlGame.Dungeon is c)
         {
             
         }
     }
+
+   
 
     public void ShowIntent()
     {

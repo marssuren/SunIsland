@@ -17,7 +17,7 @@ public class AbstractPlayer : AbstractCreature
 	public CardGroup Limbo;
 	public List<AbstractRelic> Relics;
 	public int PotionSlots;
-	public List<AbstractRelic> Potions;
+	public List<AbstractPotion> Potions;
 	//public 
 	public override void Damage(DamageInfo _damageInfo)
 	{
@@ -31,6 +31,86 @@ public class AbstractPlayer : AbstractCreature
 			
 		}
 	}
+
+    public bool HasRelic(string _targetId)
+    {
+        for (int i = 0; i < Relics.Count; i++)
+        {
+            if (Relics[i].relicId==_targetId)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool HasPotion(string _id)
+    {
+        for (int i = 0; i < Potions.Count; i++)
+        {
+            if (Potions[i].Id==_id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void LoseRandomRelics(int _amount)
+    {
+        if (_amount>Relics.Count)
+        {
+            for (int i = 0; i < Relics.Count; i++)
+            {
+                Relics[i].OnUnEquip();
+            }
+            Relics.Clear();
+        }
+        else
+        {
+            for (int i = 0; i < _amount; i++)
+            {
+                int tIndex = Random.Range(0, Relics.Count);
+                Relics[tIndex].OnUnEquip();
+                Relics.RemoveAt(tIndex);
+            }
+            
+        }
+    }
+
+    public void ReorganizeRelics()
+    {
+        List<AbstractRelic> tRelicsLst=new List<AbstractRelic>();
+        tRelicsLst.AddRange(Relics);
+        Relics.Clear();
+        for (int i = 0; i < tRelicsLst.Count; i++)
+        {
+            tRelicsLst[i].ReOrgnaizeObtain(this,i,false,tRelicsLst.Count);
+        }
+    }
+
+    public AbstractRelic GetRelic(string _targetId)
+    {
+        AbstractRelic tAbstractRelic = null;
+        for (int i = 0; i < Relics.Count; i++)
+        {
+            if (Relics[i].relicId==_targetId)
+            {
+                tAbstractRelic = Relics[i];
+            }
+        }
+        return tAbstractRelic;
+    }
+
+    public void ObtainPotion(int _slot, AbstractPotion _potion)
+    {
+        if (_slot<PotionSlots)
+        {
+            Potions.Insert(_slot,_potion);
+            _potion.
+        }
+    }
 }
 public enum PlayerClass
 {
