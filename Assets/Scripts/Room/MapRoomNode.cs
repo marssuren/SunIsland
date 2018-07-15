@@ -10,6 +10,10 @@ public class MapRoomNode
 	public bool IsTaken;
 	public bool IsHighlighted;
 
+    public MapRoomNode(int _x,int _y)
+    {
+        
+    }
 	//public bool IsConnectedTo(MapRoomNode _node)
 	//{
 

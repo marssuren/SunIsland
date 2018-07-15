@@ -135,4 +135,11 @@ public class MonsterGroup
         }
     }
 
+    public void Init()
+    {
+        for (int i = 0; i < Monsters.Count; i++)
+        {
+            Monsters[i].init
+        }
+    }
 }

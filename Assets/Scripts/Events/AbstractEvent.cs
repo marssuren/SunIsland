@@ -33,7 +33,7 @@ public abstract class AbstractEvent
     {
         AbstractDungeon.GetCurrRoom().Phase = RoomPhase.Combat;
         AbstractDungeon.LastCombatMetricKey = Name;
-        AbstractDungeon.GetCurrRoom().
+        AbstractDungeon.GetCurrRoom().Monsters.
     }
 
 }

@@ -212,7 +212,25 @@ public abstract class AbstractCreature : MonoBehaviour
         }
         return true;
     }
-    
+
+    public void UseJumpAnimation()
+    {
+
+    }
+    public void UseStaggerAnimation()
+    {
+        
+    }
+
+    public void UseFastShakeAnimation(float _duration)
+    {
+
+    }
+
+    public void UseShakeAnimation(float _duration)
+    {
+
+    }
 }
 
 public enum CreatureAnimation

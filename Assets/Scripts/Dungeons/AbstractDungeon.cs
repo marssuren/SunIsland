@@ -83,6 +83,10 @@ public abstract class AbstractDungeon
 	public static MapRoomNode NextRoom;
 	public static List<string> RelicsToRemoveOnStart;
 	public static int BossCount;
+    public static bool IsAscensionMode;
+    public static int ascensionLevel;
+    public static List<AbstractBlight> Blights;
+    public static bool ascensionCheck;
     public static Random random;
 
 	public AbstractDungeon(string _name, string _levelId, AbstractPlayer _player, List<string> _newSpecialOneTimeEventList)
@@ -163,9 +167,11 @@ public abstract class AbstractDungeon
 
     protected static void GenerateMap()
     {
-        if (Player.)
+        if (Player.HasRelic("MemberShipCard"))
         {
             
         }
+        List<AbstractRoom> tRoomList=new List<AbstractRoom>();
+        Map=MapGenerator
     }
 }
