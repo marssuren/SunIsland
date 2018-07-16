@@ -27,8 +27,33 @@ public class EnergyPanel : AbstractPanel
 		TotalCount = _energy;
 		AbstractDungeon.EffectsQueue.Add(new RefreshEnergyEffect());
 	}
-	public static int GetCurrentEnergy()
+    public static void AddEnergy(int _energy)
+    {
+        TotalCount += _energy;
+        if (TotalCount >= 9)
+        {
+            //Achivement Unlock
+        }
+
+        if (TotalCount > 999)
+        {
+            TotalCount = 999;
+        }
+        AbstractDungeon.EffectList.Add(new RefreshEnergyEffect());
+    }
+
+    public static void UseEnergy(int _e)
+    {
+        TotalCount -= _e;
+        if (TotalCount < 0)
+        {
+            TotalCount = 0;
+        }
+    }
+    public static int GetCurrentEnergy()
 	{
 		return AbstractDungeon.Player == null ? 0 : TotalCount;
 	}
+
+    
 }

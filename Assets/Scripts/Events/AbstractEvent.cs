@@ -29,11 +29,12 @@ public abstract class AbstractEvent
 
     }
 
-    public void OnEnterCombat()
+    public void EnterCombat()
     {
         AbstractDungeon.GetCurrRoom().Phase = RoomPhase.Combat;
         AbstractDungeon.LastCombatMetricKey = Name;
-        AbstractDungeon.GetCurrRoom().Monsters.
+        AbstractDungeon.GetCurrRoom().Monsters.Init();
+        AbstractDungeon.Player.
     }
 
 }
