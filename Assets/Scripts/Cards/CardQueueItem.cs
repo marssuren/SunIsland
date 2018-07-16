@@ -16,7 +16,7 @@ public class CardQueueItem
 		Monster = null;
 	}
 
-	public CardQueueItem(AbstractCard _card, AbstractMonster _monster) : this(_card, _monster,)
+	public CardQueueItem(AbstractCard _card, AbstractMonster _monster) : this(_card, _monster,EnergyPanel.GetCurrentEnergy())
 	{
 
 	}
@@ -29,9 +29,9 @@ public class CardQueueItem
 		EnergyOnUse = _setEnergyOnUse;
 	}
 
-	public CardQueueItem(AbstractCard _card,bool _isEndTurnAutoPlay)
+	public CardQueueItem(AbstractCard _card,bool _isEndTurnAutoPlay):this(_card,null)
 	{
-		
+		IsEndTurnAutoPlay = _isEndTurnAutoPlay;
 	}
 
 

@@ -311,8 +311,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
     <Compile Include="Assets\Scripts\Actions\ClearCardQueueAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\HealAction.cs" />
     <Compile Include="Assets\Scripts\Actions\GameActionManager.cs" />
     <Compile Include="Assets\Scripts\Actions\Utility\UseCardAction.cs" />
+    <Compile Include="Assets\Scripts\Blights\AbstractBlight.cs" />
     <Compile Include="Assets\Scripts\Cards\AbstractCard.cs" />
     <Compile Include="Assets\Scripts\Cards\CardGroup.cs" />
     <Compile Include="Assets\Scripts\Cards\CardQueueItem.cs" />
@@ -320,11 +322,21 @@
     <Compile Include="Assets\Scripts\Cards\SoulGroup.cs" />
     <Compile Include="Assets\Scripts\Characters\AbstractPlayer.cs" />
     <Compile Include="Assets\Scripts\Core\AbstractCreature.cs" />
+    <Compile Include="Assets\Scripts\Core\CardCrawlGame.cs" />
+    <Compile Include="Assets\Scripts\Core\EnergyManager.cs" />
+    <Compile Include="Assets\Scripts\Core\OverlayMenu.cs" />
     <Compile Include="Assets\Scripts\Dungeons\AbstractDungeon.cs" />
+    <Compile Include="Assets\Scripts\Dungeons\TheCity.cs" />
+    <Compile Include="Assets\Scripts\Events\AbstractEvent.cs" />
+    <Compile Include="Assets\Scripts\Map\MapEdge.cs" />
+    <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\Monsters\AbstractMonster.cs" />
+    <Compile Include="Assets\Scripts\Monsters\EnemyMoveInfo.cs" />
+    <Compile Include="Assets\Scripts\Monsters\MonsterGroup.cs" />
     <Compile Include="Assets\Scripts\Monsters\MonsterQueueItem.cs" />
     <Compile Include="Assets\Scripts\Orbs\AbstractOrb.cs" />
     <Compile Include="Assets\Scripts\Potions\AbstractPotion.cs" />
+    <Compile Include="Assets\Scripts\Potions\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\Powers\AbstractPower.cs" />
     <Compile Include="Assets\Scripts\Relics\AbstractRelic.cs" />
     <Compile Include="Assets\Scripts\Rewards\Chests\AbstractChest.cs" />
@@ -338,11 +350,17 @@
     <Compile Include="Assets\Scripts\Rooms\AbstractRoom.cs" />
     <Compile Include="Assets\Scripts\Rooms\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\Scenes\AbstractScene.cs" />
+    <Compile Include="Assets\Scripts\Stats\CharStat.cs" />
+    <Compile Include="Assets\Scripts\Stats\StatsScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Panels\AbstractPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Panels\EnergyPanel.cs" />
     <Compile Include="Assets\Scripts\VFX\AbstractGameEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\DamageNumberEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\ExhaustCardEffect.cs" />
     <Compile Include="Assets\Scripts\VFX\Combat\GainPowerEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\HbBlockBrokenEffect.cs" />
     <Compile Include="Assets\Scripts\VFX\Combat\RefreshEnergyEffect.cs" />
+    <Compile Include="Assets\Scripts\VFX\Combat\StrikeEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd\TCG_Card_Design\ReadMe.txt" />

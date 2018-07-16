@@ -102,7 +102,24 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
 
     }
 
-    public int OnPlayerGainBlock(int _blockAmount)
+	public void OnManualDiscard()
+	{
+
+	}
+	public void OnUseCard(AbstractCard _targetCard, UseCardAction _useCardAction)
+	{
+
+	}
+	public void OnVictory()
+	{
+
+	}
+	public void OnMonsterDeath(AbstractMonster _monster)
+	{
+
+	}
+
+	public int OnPlayerGainBlock(int _blockAmount)
     {
         return _blockAmount;
     }
@@ -146,6 +163,7 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
     {
 
     }
+	
 
     public void OnShuffle()
     {
@@ -215,10 +233,7 @@ public abstract class AbstractRelic : IComparable<AbstractRelic>
     {
 
     }
-    public void OnUseCard(AbstractCard _targetCard, UseCardAction _useCardAction)
-    {
-
-    }
+    
     public void OnLoseHp(int _damageAmount)
     {
 

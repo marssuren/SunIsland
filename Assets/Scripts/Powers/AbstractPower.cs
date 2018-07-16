@@ -169,10 +169,10 @@ public class AbstractPower : MonoBehaviour, IComparable<AbstractPower>
 	{
 
 	}
-	//public int OnPlayerGainedBlock(float _blockAmount)
-	//{
-
-	//}
+	public int OnPlayerGainedBlock(float _blockAmount)
+	{
+		return (int)Math.Floor(_blockAmount);
+	}
 	public int OnPlayerGainedBlock(int _blockAmount)
 	{
 		return _blockAmount;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbstractPotion : MonoBehaviour
+public abstract class AbstractPotion
 {
     public readonly string[] Text;
     public string Id;
@@ -15,7 +15,20 @@ public abstract class AbstractPotion : MonoBehaviour
     public bool IsThrown;
     public bool IsTargetRequired;
     public PotionRarity Rarity;
+	protected int Potency;
 
+	public AbstractPotion(string _name,string _id,PotionRarity _rarity,PotionSize _potionSize,PotionColor _potionColor)
+	{
+		IsObtained = false;
+		Potency = 0;
+		IsCanUse = false;
+		Discarded = false;
+		IsThrown = false;
+		IsTargetRequired = false;
+		Name = _name;
+		Id = _id;
+		Rarity = _rarity;
+	}
 
 
     public void SetAsObtained(int _slot)

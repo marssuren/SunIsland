@@ -119,12 +119,93 @@ public class MonsterGroup
             }
         }
 
-        if (CardCrawlGame.Dungeon is c)
+        if (CardCrawlGame.Dungeon is TheCity)
         {
-            
+	        return true;
         }
-    }
 
+	    return false;
+    }
+	public AbstractMonster GetRandomMonster()
+	{
+		return GetRandomMonster(null, false);
+	}
+	public AbstractMonster GetRandomMonster(bool _isAliveOnly)
+	{
+		return GetRandomMonster(null, _isAliveOnly);
+	}
+	public AbstractMonster GetRandomMonster(AbstractMonster _exception, bool _isAliveOnly)
+	{
+		if (AreMonstersBasicallyDead())
+		{
+			return null;
+		}
+		else
+		{
+			List<AbstractMonster> tempList;
+			AbstractMonster tAbstractMonster;
+			if (null==_exception)
+			{
+				if (_isAliveOnly)
+				{
+					tempList=new List<AbstractMonster>();
+					for (int i = 0; i < Monsters.Count; i++)
+					{
+						if (Monsters[i].HalfDead&&!Monsters[i].IsDying&&!Monsters[i].IsEscaping)
+						{
+							tempList.Add(Monsters[i]);
+						}
+					}
+					if (tempList.Count<=0)
+					{
+						return null;
+					}
+					return tempList[Random.Range(0, tempList.Count)];
+				}
+				return Monsters[Random.Range(0, Monsters.Count)];
+			}
+			if(Monsters.Count==1)
+			{
+				return Monsters[0];
+			}
+
+			if (_isAliveOnly)
+			{
+				List<AbstractMonster> tLst=new List<AbstractMonster>();
+				for (int i = 0; i < Monsters.Count; i++)
+				{
+					if (!Monsters[i].HalfDead&&!Monsters[i].IsDying&&!Monsters[i].IsEscaping&&!_exception.Equals(Monsters[i]))
+					{
+						tLst.Add(Monsters[i]);
+					}
+				}
+				if (tLst.Count==0)
+				{
+					return null;
+				}
+				return tLst[Random.Range(0, tLst.Count)];
+			}
+			else
+			{
+				List<AbstractMonster> tLst=new List<AbstractMonster>();
+				for (int i = 0; i < Monsters.Count; i++)
+				{
+					if (!_exception.Equals(Monsters[i]))
+					{
+						tLst.Add(Monsters[i]);
+					}
+				}
+				return tLst[Random.Range(0, tLst.Count)];
+			}
+		}
+	}
+	public void Escape()
+	{
+		for (int i = 0; i < Monsters.Count; i++)
+		{
+			Monsters[i].Escape();
+		}
+	}
    
 
     public void ShowIntent()
@@ -139,7 +220,7 @@ public class MonsterGroup
     {
         for (int i = 0; i < Monsters.Count; i++)
         {
-            Monsters[i].init
+            Monsters[i].init();
         }
     }
 }

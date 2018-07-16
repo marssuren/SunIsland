@@ -80,6 +80,7 @@ public abstract class AbstractDungeon
 	public static bool CenterRoomAvailable;
 	public static bool RightRoomAvailable;
 	public static bool FirstRoomChosen;
+	public static OverlayMenu OverLayMenu;
 	public static MapRoomNode NextRoom;
 	public static List<string> RelicsToRemoveOnStart;
 	public static int BossCount;
@@ -164,7 +165,14 @@ public abstract class AbstractDungeon
 
 	    return new SmallChest();
 	}
+	private AbstractRoom generateRoom()
+	{
 
+	}
+	public static MonsterGroup GetMonsters()
+	{
+		return GetCurrRoom().Monsters;
+	}
     protected static void GenerateMap()
     {
         if (Player.HasRelic("MemberShipCard"))

@@ -27,4 +27,8 @@ public class EnergyPanel : AbstractPanel
 		TotalCount = _energy;
 		AbstractDungeon.EffectsQueue.Add(new RefreshEnergyEffect());
 	}
+	public static int GetCurrentEnergy()
+	{
+		return AbstractDungeon.Player == null ? 0 : TotalCount;
+	}
 }

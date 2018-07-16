@@ -94,8 +94,21 @@ public abstract class AbstractMonster : AbstractCreature
         intentBaseDmg = move.BaseDamage;
         if (move.BaseDamage > -1)
         {
-
+			calculateDamage(intentBaseDmg);
+	        if (move.IsMultiDamage)
+	        {
+		        intentMultiAmt = move.MultiPlayer;
+		        isMultiDmg = true;
+	        }
+	        else
+	        {
+		        intentMultiAmt = -1;
+		        isMultiDmg = false;
+	        }
         }
+
+//	    intentImg = getintentImg();
+		updateIntentTip()
     }
 
     private void calculateDamage(int _dmg)
@@ -207,14 +220,21 @@ public abstract class AbstractMonster : AbstractCreature
             {
                 if (isHadBlock)
                 {
-                    //AbstractDungeon.EffectList.Add(new );
-
-                }
+					//AbstractDungeon.EffectList.Add(new );
+				}
                 else
                 {
-                    
+                    AbstractDungeon.EffectList.Add(new StrikeEffect(this,0,0,0));
                 }
             }
+			//else if (tAbstractPower)
+   //         {
+	            
+   //         }
+	        if (CurrentHealth<=0)
+	        {
+		        d
+	        }
         }
         
     }
@@ -265,44 +285,49 @@ public abstract class AbstractMonster : AbstractCreature
         return (MoveHistory[MoveHistory.Count - 1] == _move) && (MoveHistory[MoveHistory.Count - 2] == _move);
     }
 
-    //private Image GetIntentImg()
-    //{
-    //    switch (MonsterIntent)
-    //    {
-    //        case Intent.Attack:
-    //            //return this.getAttackIntent();
-    //        case Intent.AttackBuff:
-    //            //return this.getAttackIntent();
-    //        case Intent.AttackDebuff:
-    //            //return this.getAttackIntent();
-    //        case Intent.AttackDefend:
-    //            //return this.getAttackIntent();
-    //        case Intent.Buff:
-    //            //return ImageMaster.INTENT_BUFF_L;
-    //        case Intent.Debuff:
-    //            //return ImageMaster.INTENT_DEBUFF_L;
-    //        case Intent.StrongDebuff:
-    //            //return ImageMaster.INTENT_DEBUFF2_L;
-    //        case Intent.Defend:
-    //            //return ImageMaster.INTENT_DEFEND_L;
-    //        case Intent.DefendDebuff:
-    //            //return ImageMaster.INTENT_DEFEND_L;
-    //        case Intent.DefendBuff:
-    //            //return ImageMaster.INTENT_DEFEND_BUFF_L;
-    //        case Intent.Escape:
-    //            //return ImageMaster.INTENT_ESCAPE_L;
-    //        case Intent.Magic:
-    //            //return ImageMaster.INTENT_MAGIC_L;
-    //        case Intent.Sleep:
-    //            //return ImageMaster.INTENT_SLEEP_L;
-    //        case Intent.Stun:
-    //            return null;
-    //        case Intent.Unknown:
-    //            //return ImageMaster.INTENT_UNKNOWN_L;
-    //        default:
-    //            //return ImageMaster.INTENT_UNKNOWN_L;
-    //    }
-    //}
+	//    private Image GetIntentImg()
+	//    {
+	//        switch (MonsterIntent)
+	//        {
+	//            case Intent.Attack:
+	//                //return this.getAttackIntent();
+	//            case Intent.AttackBuff:
+	//                //return this.getAttackIntent();
+	//            case Intent.AttackDebuff:
+	//                //return this.getAttackIntent();
+	//            case Intent.AttackDefend:
+	//                //return this.getAttackIntent();
+	//            case Intent.Buff:
+	//                //return ImageMaster.INTENT_BUFF_L;
+	//            case Intent.Debuff:
+	//                //return ImageMaster.INTENT_DEBUFF_L;
+	//            case Intent.StrongDebuff:
+	//                //return ImageMaster.INTENT_DEBUFF2_L;
+	//            case Intent.Defend:
+	//                //return ImageMaster.INTENT_DEFEND_L;
+	//            case Intent.DefendDebuff:
+	//                //return ImageMaster.INTENT_DEFEND_L;
+	//            case Intent.DefendBuff:
+	//                //return ImageMaster.INTENT_DEFEND_BUFF_L;
+	//            case Intent.Escape:
+	//                //return ImageMaster.INTENT_ESCAPE_L;
+	//            case Intent.Magic:
+	//                //return ImageMaster.INTENT_MAGIC_L;
+	//            case Intent.Sleep:
+	//                //return ImageMaster.INTENT_SLEEP_L;
+	//            case Intent.Stun:
+	//                return null;
+	//            case Intent.Unknown:
+	//                //return ImageMaster.INTENT_UNKNOWN_L;
+	//            default:
+	//                //return ImageMaster.INTENT_UNKNOWN_L;
+	//			return new Texture();
+	//        }
+	//    }
+	private void updateIntentTip()
+	{
+
+	}
     public void ChangeState(string _stateName)
     {
 
@@ -312,16 +337,67 @@ public abstract class AbstractMonster : AbstractCreature
     {
         AbstractDungeon.BossCount++;
         PlayBossStinger();
-        for (int i = 0; i < AbstractDungeon.; i++)
+        for (int i = 0; i < AbstractDungeon.Blights.Count; i++)
         {
-            
-        }
+			AbstractDungeon.Blights[i].OnBossDefeat();
+		}
+
+	    if (GameActionManager.Turn<=1)
+	    {
+		    
+	    }
+
+	    if (GameActionManager.)
+	    {
+		    
+	    }
     }
 
     public static void PlayBossStinger()
     {
 
     }
+	public void Die()
+	{
+
+	}
+	public void Die(bool _isTriggerRelics)
+	{
+		if (!IsDying)
+		{
+			IsDying = true;
+			if (CurrentHealth<=0)
+			{
+				for (int i = 0; i < powers.Count; i++)
+				{
+					powers[i].OnDeath();
+				}
+			}
+
+			if (_isTriggerRelics)
+			{
+				for (int i = 0; i < AbstractDungeon.Player.Relics.Count; i++)
+				{
+					AbstractDungeon.Player.Relics[i].OnMonsterDeath(this);
+				}
+			}
+
+			if (AbstractDungeon.GetMonsters().AreMonstersBasicallyDead())
+			{
+				//AbstractDungeon.OverLayMenu
+				for (int i = 0; i < AbstractDungeon.Player.Limbo.Group.Count; i++)
+				{
+					AbstractDungeon.EffectList.Add(new ExhaustCardEffect(AbstractDungeon.Player.Limbo.Group[i]));
+				}
+				AbstractDungeon.Player.Limbo.Group.Clear();
+			}
+
+			if (CurrentHealth<0)
+			{
+				CurrentHealth = 0;
+			}
+		}
+	}
 }
 public enum EnemyType
 {
