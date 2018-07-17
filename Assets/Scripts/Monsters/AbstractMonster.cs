@@ -347,11 +347,24 @@ public abstract class AbstractMonster : AbstractCreature
 		    
 	    }
 
-	    if (GameActionManager.)
+	    if (GameActionManager.DamageReceivedThisCombat-GameActionManager.HpLossThisCombat<=0)
 	    {
-		    
+		    CardCrawlGame.Perfect++;
 	    }
     }
+	protected void OnFinalBossVictoryLogic()
+	{
+		CardCrawlGame.StopClock = true;
+		if (CardCrawlGame.PlayTime<=1200f)
+		{
+			
+		}
+
+		if (AbstractDungeon.Player.MasterDeck.)
+		{
+			
+		}
+	}
 
     public static void PlayBossStinger()
     {

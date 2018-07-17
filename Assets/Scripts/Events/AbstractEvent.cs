@@ -11,6 +11,7 @@ public abstract class AbstractEvent
     protected int SceneNum;
     public static EventType Type;
     public static string Name;
+	public bool IsHasFocus;
     public static string[] Descriptions;
     public static string[] Options;
     public bool IsCombatTime;
@@ -34,7 +35,10 @@ public abstract class AbstractEvent
         AbstractDungeon.GetCurrRoom().Phase = RoomPhase.Combat;
         AbstractDungeon.LastCombatMetricKey = Name;
         AbstractDungeon.GetCurrRoom().Monsters.Init();
-        AbstractDungeon.Player.
+        AbstractDungeon.Player.PreBattlePrep();
+	    IsHasFocus = false;
+		
+
     }
 
 }

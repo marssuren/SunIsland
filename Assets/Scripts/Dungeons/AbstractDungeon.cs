@@ -191,7 +191,7 @@ public abstract class AbstractDungeon
             for (int j = 0; j < Map[i].Count; j++)
             {
                 MapRoomNode tNode = Map[i][j];
-                if (tNode.)
+                if (tNode.IsHasEdges()&&tNode.)
                 {
                     
                 }

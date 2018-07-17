@@ -6,6 +6,9 @@ public class CardCrawlGame
 {
     public static AbstractDungeon Dungeon;
     public static bool IsStartOver;
+
+	public static int Champion;
+	public static int Perfect;
     public static bool IsOverkill;
     public static bool IsCombo;
     public static bool IsCheater;

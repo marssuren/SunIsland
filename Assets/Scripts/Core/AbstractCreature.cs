@@ -180,18 +180,7 @@ public abstract class AbstractCreature : MonoBehaviour
 		}
 	}
 
-	public bool IsHasPower(string _targetId)
-	{
-		for(int i = 0; i < powers.Count; i++)
-		{
-			if(powers[i].ID.Equals(_targetId))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
+	
 
 	public bool IsDeadOrEscaped()
 	{
@@ -227,6 +216,30 @@ public abstract class AbstractCreature : MonoBehaviour
 	public void UseShakeAnimation(float _duration)
 	{
 
+	}
+	public AbstractPower GetPower(string _targetId)
+	{
+		AbstractPower tAbstractPower = null;
+		for(int i = 0; i < powers.Count; i++)
+		{
+			if(powers[i].ID.Equals(_targetId))
+			{
+				tAbstractPower = powers[i];
+			}
+		}
+		return tAbstractPower;
+	}
+	public bool IsHasPower(string _targetId)
+	{
+		for(int i = 0; i < powers.Count; i++)
+		{
+			if(powers[i].ID.Equals(_targetId))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 	public void Heal(int _healAmount, bool _showEffect)
 	{
@@ -328,7 +341,7 @@ public abstract class AbstractCreature : MonoBehaviour
 
 		}
 	}
-	
+
 
 	public void GainBlockAnimation()
 	{
