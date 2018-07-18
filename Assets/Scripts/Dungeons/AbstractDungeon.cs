@@ -191,11 +191,69 @@ public abstract class AbstractDungeon
             for (int j = 0; j < Map[i].Count; j++)
             {
                 MapRoomNode tNode = Map[i][j];
-                if (tNode.IsHasEdges()&&tNode.)
-                {
-                    
-                }
+                //if (tNode.IsHasEdges()&&tNode.y)
+                //{
+
+                //}
             }
         }
+        //generateroo
+
+    }
+
+    private static void generateRoomTypes(List<AbstractRoom> _roomList, int _availableRoomCount)
+    {
+        int tShopCount = (int)Math.Round((float)_availableRoomCount + ShopRoomChance);
+        int tRestCount = (int)Math.Round((float)_availableRoomCount + RestRoomChance);
+        int tTreasureCount = (int)Math.Round((float)_availableRoomCount + TreasureRoomChance);
+        int tEliteCount;
+        //if (Scene)
+        //{
+
+        //}
+        tEliteCount = (int)Math.Round((float)_availableRoomCount * EliteRoomChance);
+        int tEventCount = (int)Math.Round((float)_availableRoomCount * EventRoomChance);
+        int tMonsterCount = _availableRoomCount - tShopCount - tRestCount - tRestCount - tEliteCount - tEventCount;
+        int i = 0;
+        for (i = 0; i < tShopCount; i++)
+        {
+            _roomList.Add(new ShopRoom());
+        }
+
+        for (i = 0; i < tRestCount; i++)
+        {
+            _roomList.Add(new RestRoom());
+        }
+
+        for (i = 0; i < tEliteCount; i++)
+        {
+            _roomList.Add(new MonsterRoomElite());
+        }
+
+        for (i = 0; i < tEventCount; i++)
+        {
+            _roomList.Add(new EventRoom());
+        }
+    }
+
+    private static string toPercentage(float _n)
+    {
+        return String.Format("%.0f", _n * 100f) + "%";
+    }
+
+    private static void firstRoomLogic()
+    {
+        InitializeFirstRoom();
+        LeftRoomAvailable = CurMapNode.LeftNodeAvailable();
+        CenterRoomAvailable=CurMapNode.center
+    }
+
+    public static void InitializeFirstRoom()
+    {
+        FloorNum++;
+        //if ()
+        //{
+            
+        //}
     }
 }

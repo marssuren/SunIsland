@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
     <Compile Include="Assets\Scripts\Actions\ClearCardQueueAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\DiscardAtEndOfTurnAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\HealAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\ReducePowerAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\RelicAboveCreatureAction.cs" />
@@ -81,6 +82,8 @@
     <Compile Include="Assets\Scripts\Dungeons\AbstractDungeon.cs" />
     <Compile Include="Assets\Scripts\Dungeons\TheCity.cs" />
     <Compile Include="Assets\Scripts\Events\AbstractEvent.cs" />
+    <Compile Include="Assets\Scripts\Events\RoomEventDialog.cs" />
+    <Compile Include="Assets\Scripts\Helpers\Prefs.cs" />
     <Compile Include="Assets\Scripts\Map\MapEdge.cs" />
     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\Monsters\AbstractMonster.cs" />
@@ -88,6 +91,11 @@
     <Compile Include="Assets\Scripts\Monsters\MonsterGroup.cs" />
     <Compile Include="Assets\Scripts\Monsters\MonsterQueueItem.cs" />
     <Compile Include="Assets\Scripts\Orbs\AbstractOrb.cs" />
+    <Compile Include="Assets\Scripts\Orbs\Dark.cs" />
+    <Compile Include="Assets\Scripts\Orbs\EmptyOrbSlot.cs" />
+    <Compile Include="Assets\Scripts\Orbs\Frost.cs" />
+    <Compile Include="Assets\Scripts\Orbs\Lightning.cs" />
+    <Compile Include="Assets\Scripts\Orbs\Plasma.cs" />
     <Compile Include="Assets\Scripts\Potions\AbstractPotion.cs" />
     <Compile Include="Assets\Scripts\Potions\PotionSlot.cs" />
     <Compile Include="Assets\Scripts\Powers\AbstractPower.cs" />
@@ -99,14 +107,20 @@
     <Compile Include="Assets\Scripts\Rewards\Chests\MediumChest.cs" />
     <Compile Include="Assets\Scripts\Rewards\Chests\SmallChest.cs" />
     <Compile Include="Assets\Scripts\Rewards\RewardItem.cs" />
+    <Compile Include="Assets\Scripts\Room\EventRoom.cs" />
     <Compile Include="Assets\Scripts\Room\MapRoomNode.cs" />
+    <Compile Include="Assets\Scripts\Room\MonsterRoomElite.cs" />
+    <Compile Include="Assets\Scripts\Room\RestRoom.cs" />
+    <Compile Include="Assets\Scripts\Room\ShopRoom.cs" />
     <Compile Include="Assets\Scripts\Rooms\AbstractRoom.cs" />
     <Compile Include="Assets\Scripts\Rooms\TreasureRoom.cs" />
     <Compile Include="Assets\Scripts\Scenes\AbstractScene.cs" />
     <Compile Include="Assets\Scripts\Stats\CharStat.cs" />
     <Compile Include="Assets\Scripts\Stats\StatsScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogWord.cs" />
     <Compile Include="Assets\Scripts\UI\Panels\AbstractPanel.cs" />
     <Compile Include="Assets\Scripts\UI\Panels\EnergyPanel.cs" />
+    <Compile Include="Assets\Scripts\Unlock\UnlockTracker.cs" />
     <Compile Include="Assets\Scripts\VFX\AbstractGameEffect.cs" />
     <Compile Include="Assets\Scripts\VFX\Combat\DamageNumberEffect.cs" />
     <Compile Include="Assets\Scripts\VFX\Combat\ExhaustCardEffect.cs" />

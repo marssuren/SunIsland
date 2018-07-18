@@ -236,6 +236,20 @@ public abstract class AbstractCard : IComparable<AbstractCard>
     {
 
     }
+
+    public void ResetAttributes()
+    {
+        Block = BaseBlock;
+        IsBlockModified = false;
+        Damage = BaseDamage;
+        IsDamageModified = false;
+        MagicNumber = BaseMagicNumber;
+        IsMagicNumberModified = false;
+        DamageTypeForTurn = CardDamageType;
+        CostForTurn = Cost;
+        IsCostModified = false;
+
+    }
 }
 public enum CardType
 {

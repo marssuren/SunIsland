@@ -10,6 +10,8 @@ public class MapRoomNode
     public bool IsTaken;
     public bool IsHighlighted;
     private List<MapEdge> edges;
+    public int X;
+    public int Y;
 
     public MapRoomNode(int _x, int _y)
     {
@@ -51,7 +53,7 @@ public class MapRoomNode
     public bool IsConnectedTo(MapRoomNode _node)
     {
         MapEdge tMapEdge;
-        if (edges.Count==0)
+        if (edges.Count == 0)
         {
             return false;
         }
@@ -59,7 +61,7 @@ public class MapRoomNode
         {
             //if (edges[i].)
             //{
-                
+
             //}
         }
 
@@ -76,12 +78,51 @@ public class MapRoomNode
         MapEdge tMapEdge;
         for (int i = 0; i < edges.Count; i++)
         {
-            
+
         }
 
         return true;
     }
-    
+
+    public bool CenterNodeAvailable()
+    {
+        for (int i = 0; i < edges.Count; i++)
+        {
+            if (edges[i].dstX == X)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool RightNodeAvailable()
+    {
+        for (int i = 0; i < edges.Count; i++)
+        {
+            if (edges[i].dstX > X)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void AddParent(MapRoomNode _parent)
+    {
+        parents.Add(_parent);
+    }
+
+    public List<MapRoomNode> GetParents()
+    {
+        return parents;
+    }
+
+    public string GetRoomSymbol(bool _isShowSpecificRoomSymbol)
+    {
+        return Room!=null&&_isShowSpecificRoomSymbol?Room.
+    }
+
     public AbstractRoom GetRoom()
     {
         return Room;

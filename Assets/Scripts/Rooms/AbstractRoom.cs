@@ -47,12 +47,37 @@ public abstract class AbstractRoom
     public void EndTurn()
     {
         AbstractDungeon.Player.ApplyEndOfTurnTriggers();
-        AbstractDungeon.ActionManager.AddToBottom(new Clea);
+        AbstractDungeon.ActionManager.AddToBottom(new ClearCardQueueAction());
+        AbstractDungeon.ActionManager.AddToBottom(new DiscardAtEndOfTurnAction());
+        for (int i = 0; i < AbstractDungeon.Player.DrawPile.Group.Count; i++)
+        {
+            AbstractCard tCard = AbstractDungeon.Player.DrawPile.Group[i];
+            tCard.ResetAttributes();
+        }
+
+        for (int i = 0; i < AbstractDungeon.Player.DiscardPile.Group.Count; i++)
+        {
+            AbstractCard tCard = AbstractDungeon.Player.DiscardPile.Group[i];
+            tCard.ResetAttributes();
+        }
+
+        for (int i = 0; i < AbstractDungeon.Player.Hand.Group.Count; i++)
+        {
+            AbstractCard tCard = AbstractDungeon.Player.Hand.Group[i];
+            tCard.ResetAttributes();
+
+        }
+
+        if (null != AbstractDungeon.Player.HoveredCard)
+        {
+            AbstractDungeon.Player.HoveredCard.ResetAttributes();
+        }
+
     }
 
     public void ClearEvent()
     {
-        
+
     }
     public void AddCardReward(RewardItem _rewardItem)
     {
@@ -60,6 +85,16 @@ public abstract class AbstractRoom
         {
             rewards.Add(_rewardItem);
         }
+    }
+
+    public string GetMapSymbol()
+    {
+        return mapSymbol;
+    }
+
+    public void SetMapSymbol(string _newSymbol)
+    {
+        mapSymbol = _newSymbol;
     }
 }
 
