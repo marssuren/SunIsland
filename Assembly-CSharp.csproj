@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Dungeons\TheCity.cs" />
     <Compile Include="Assets\Scripts\Events\AbstractEvent.cs" />
     <Compile Include="Assets\Scripts\Events\RoomEventDialog.cs" />
+    <Compile Include="Assets\Scripts\Helpers\EventHelper\EventHelper.cs" />
     <Compile Include="Assets\Scripts\Helpers\Prefs.cs" />
     <Compile Include="Assets\Scripts\Map\MapEdge.cs" />
     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />

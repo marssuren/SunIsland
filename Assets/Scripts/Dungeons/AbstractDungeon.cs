@@ -165,7 +165,7 @@ public abstract class AbstractDungeon
 
         return new SmallChest();
     }
-    private AbstractRoom generateRoom()
+    private AbstractRoom generateRoom(RoomResult _roomType)
     {
 
     }
@@ -245,7 +245,61 @@ public abstract class AbstractDungeon
     {
         InitializeFirstRoom();
         LeftRoomAvailable = CurMapNode.LeftNodeAvailable();
-        CenterRoomAvailable=CurMapNode.center
+        CenterRoomAvailable = CurMapNode.CenterNodeAvailable();
+        RightRoomAvailable = CurMapNode.RightNodeAvailable();
+    }
+
+    public bool PassesDountCheck(List<List<MapRoomNode>> _map)
+    {
+        int tWidth = _map[0].Count;
+        int tHeight = _map.Count;
+        int tNodeCount = 0;
+        bool[] tRoomHasNode=new bool[tWidth];
+        for (int i = 0; i < tWidth; i++)
+        {
+            tRoomHasNode[i] = false;
+        }
+
+        List<MapRoomNode> tSecondToLastRow = _map[_map.Count - 2];
+        for (int i = 0; i < tSecondToLastRow.Count; i++)
+        {
+            MapRoomNode tMapRoomNode = tSecondToLastRow[i];
+            for (int j = 0; j < tMapRoomNode.GetEdges().Count; j++)
+            {
+                tRoomHasNode[tMapRoomNode.GetEdges()[j].dstX] = true;
+            }
+        }
+
+        int tRoomCount;
+        for (tRoomCount = 0; tRoomCount < tWidth-1; tRoomCount++)
+        {
+            if (tRoomHasNode[tRoomCount])
+            {
+                tNodeCount++;
+            }
+        }
+
+        if (tNodeCount!=1)
+        {
+            return false;
+        }
+        else
+        {
+            tRoomCount = 0;
+            for (int i = 0; i < _map.Count; i++)
+            {
+                List<MapRoomNode> tRow = _map[i];
+                for (int j = 0; j < tRow.Count; j++)
+                {
+                    if (null!=tRow[j].Room)
+                    {
+                        tRoomCount++;
+                    }
+                }
+            }
+
+            return true;
+        }
     }
 
     public static void InitializeFirstRoom()
