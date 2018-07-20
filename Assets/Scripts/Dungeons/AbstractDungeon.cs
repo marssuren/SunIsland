@@ -165,6 +165,16 @@ public abstract class AbstractDungeon
 
         return new SmallChest();
     }
+
+    public static AbstractMonster GetRandomMonster()
+    {
+        return GetRandomMonster(null);
+    }
+
+    public static AbstractMonster GetRandomMonster(AbstractMonster _expect)
+    {
+        return CurMapNode.Room.Monsters.GetRandomMonster(_expect, true);
+    }
     private AbstractRoom generateRoom(RoomResult _roomType)
     {
 
@@ -254,7 +264,7 @@ public abstract class AbstractDungeon
         int tWidth = _map[0].Count;
         int tHeight = _map.Count;
         int tNodeCount = 0;
-        bool[] tRoomHasNode=new bool[tWidth];
+        bool[] tRoomHasNode = new bool[tWidth];
         for (int i = 0; i < tWidth; i++)
         {
             tRoomHasNode[i] = false;
@@ -271,7 +281,7 @@ public abstract class AbstractDungeon
         }
 
         int tRoomCount;
-        for (tRoomCount = 0; tRoomCount < tWidth-1; tRoomCount++)
+        for (tRoomCount = 0; tRoomCount < tWidth - 1; tRoomCount++)
         {
             if (tRoomHasNode[tRoomCount])
             {
@@ -279,7 +289,7 @@ public abstract class AbstractDungeon
             }
         }
 
-        if (tNodeCount!=1)
+        if (tNodeCount != 1)
         {
             return false;
         }
@@ -291,7 +301,7 @@ public abstract class AbstractDungeon
                 List<MapRoomNode> tRow = _map[i];
                 for (int j = 0; j < tRow.Count; j++)
                 {
-                    if (null!=tRow[j].Room)
+                    if (null != tRow[j].Room)
                     {
                         tRoomCount++;
                     }
@@ -307,7 +317,7 @@ public abstract class AbstractDungeon
         FloorNum++;
         //if ()
         //{
-            
+
         //}
     }
 }

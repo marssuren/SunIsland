@@ -61,11 +61,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
     <Compile Include="Assets\Scripts\Actions\ClearCardQueueAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\DamageAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\DiscardAtEndOfTurnAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\HealAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\ReducePowerAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\RelicAboveCreatureAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\RemoveSpecificPowerAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\LightningOrbEvokeAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\LightningOrbPassiveAction.cs" />
     <Compile Include="Assets\Scripts\Actions\GameActionManager.cs" />
     <Compile Include="Assets\Scripts\Actions\Utility\UseCardAction.cs" />
     <Compile Include="Assets\Scripts\Blights\AbstractBlight.cs" />
