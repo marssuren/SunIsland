@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Actions\AbstractGameAction.cs" />
     <Compile Include="Assets\Scripts\Actions\ClearCardQueueAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\DamageAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\DamageAllEnemiesAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\DiscardAtEndOfTurnAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\HealAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\ReducePowerAction.cs" />
@@ -86,7 +87,7 @@
     <Compile Include="Assets\Scripts\Dungeons\TheCity.cs" />
     <Compile Include="Assets\Scripts\Events\AbstractEvent.cs" />
     <Compile Include="Assets\Scripts\Events\RoomEventDialog.cs" />
-    <Compile Include="Assets\Scripts\Helpers\EventHelper\EventHelper.cs" />
+    <Compile Include="Assets\Scripts\Helpers\EventHelper.cs" />
     <Compile Include="Assets\Scripts\Helpers\Prefs.cs" />
     <Compile Include="Assets\Scripts\Map\MapEdge.cs" />
     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\Rewards\RewardItem.cs" />
     <Compile Include="Assets\Scripts\Room\EventRoom.cs" />
     <Compile Include="Assets\Scripts\Room\MapRoomNode.cs" />
+    <Compile Include="Assets\Scripts\Room\MonsterRoom.cs" />
     <Compile Include="Assets\Scripts\Room\MonsterRoomElite.cs" />
     <Compile Include="Assets\Scripts\Room\RestRoom.cs" />
     <Compile Include="Assets\Scripts\Room\ShopRoom.cs" />

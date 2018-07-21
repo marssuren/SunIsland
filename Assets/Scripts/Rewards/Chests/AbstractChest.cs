@@ -56,10 +56,23 @@ public class AbstractChest
 		switch (Relic)
 		{
 			case RelicReward.CommonRelic:
-				AbstractDungeon.GetCurrRoom().
+				AbstractDungeon.GetCurrRoom().AddRelicToRewards(RelicTier.Common);
+                
 				break;
-		}
+		    case RelicReward.UncommonRelic:
+		        AbstractDungeon.GetCurrRoom().AddRelicToRewards(RelicTier.Uncommon);
+		        break;
+		    case RelicReward.RareRelic:
+		        AbstractDungeon.GetCurrRoom().AddRelicToRewards(RelicTier.Rare);
+		        break;
+		    
+        }
 	}
+
+    public void Close()
+    {
+
+    }
 
 }
 public enum RelicReward

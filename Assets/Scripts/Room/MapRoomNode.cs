@@ -120,7 +120,7 @@ public class MapRoomNode
 
     public string GetRoomSymbol(bool _isShowSpecificRoomSymbol)
     {
-        return Room!=null&&_isShowSpecificRoomSymbol?Room.
+        return Room != null && _isShowSpecificRoomSymbol ? Room.GetMapSymbol() : "*";
     }
 
     public AbstractRoom GetRoom()

@@ -114,21 +114,22 @@ public class CardGroup
 	}
 	public void SortByRarityPlusStatusCardType(bool _isAscending)
 	{
-		sortWithComparator();
+		sortWithComparator(new CardTypeComparator(),_isAscending);
+        sortWithComparator(new StatusCardLastComparator(),true);
 	}
 
 }
-public class CardLockednessComparator:IComparer<AbstractCard>
-{
-	public int Compare(AbstractCard _card0, AbstractCard _card1)
-	{
-		int _card0Rank = 0;
-		if (Unlock)
-		{
+//public class CardLockednessComparator:IComparer<AbstractCard>
+//{
+//	public int Compare(AbstractCard _card0, AbstractCard _card1)
+//	{
+//		int _card0Rank = 0;
+//		//if (Unlock)
+//		//{
 			
-		}
-	}
-}
+//		//}
+//	}
+//}
 public class CardTypeComparator:IComparer<AbstractCard>
 {
 	public int Compare(AbstractCard _card0, AbstractCard _card1)

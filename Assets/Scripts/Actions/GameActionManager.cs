@@ -80,13 +80,44 @@ public class GameActionManager
     }
     public void ClearPostCombatActions()
     {
-        for (int i = 0; i < Actions.Count; i++)
-        {
-            if (!Actions[i] is healAction)
-            {
 
+        for (int i = Actions.Count-1; i >=0 ; i++)
+        {
+            if (!(Actions[i] is HealAction)&&!(Actions[i] is UseCardAction )&&(Actions[i].GameActionType!=ActionType.Damage))
+            {
+                Actions.Remove(Actions[i]);
             }
         }
+    }
+    public void CleanCardQueue()
+    {
+
+        for (int i = CardQueue.Count - 1; i >= 0; i--)
+        {
+            CardQueueItem tItem = CardQueue[i];
+            if (AbstractDungeon.Player.Hand.IsContains(tItem.Card))
+            {
+                CardQueue.Remove(tItem);
+            }
+        }
+
+        AbstractCard tCard;
+        for (int i = 0; i < AbstractDungeon.Player.Limbo.Group.Count; i++)
+        {
+            tCard = AbstractDungeon.Player.Limbo.Group[i];
+            //tCard.FadingOut = true;
+
+        }
+    }
+
+    public bool IsEmpty()
+    {
+        return Actions.Count == 0;
+    }
+
+    public void GetNextRoomCombatActions()
+    {
+        nextCombatActions.Clear();
     }
 
     public void Clear()
@@ -115,6 +146,10 @@ public class GameActionManager
     {
         EnergyGainedThisCombat += _energyGain;
     }
+
+    
+
+   
 }
 public enum Phase
 {

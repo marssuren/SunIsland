@@ -6,7 +6,7 @@ public class StrikeEffect: AbstractGameEffect
 {
     public StrikeEffect(AbstractCreature _target,float _x,float _y,int _number)
     {
-        AbstractDungeon.EffectsQueue.Add(new);
+        //AbstractDungeon.EffectsQueue.Add(new);
     }
 	
 }

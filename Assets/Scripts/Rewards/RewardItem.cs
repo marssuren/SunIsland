@@ -42,10 +42,21 @@ public class RewardItem
 		}
 		else
 		{
-			if (!AbstractDungeon.GetCurrRoom() is )
+			if (!(AbstractDungeon.GetCurrRoom() is TreasureRoom))
 			{
-				
+			    if (AbstractDungeon.Player.HasRelic("GoldenIdol"))
+			    {
+			        BonusGold +=(int) Mathf.Round(tGoldAmt * 0.25f);
+			    }
+
+			   
 			}
+
+		    if (BonusGold==0)
+		    {
+		        
+		    }
+
 		}
 	}
 }

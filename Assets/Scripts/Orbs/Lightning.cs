@@ -22,7 +22,7 @@ public class Lightning : AbstractOrb
 
     }
 
-    public void OnEvoke()
+    public override void OnEvoke()
     {
         if (AbstractDungeon.Player.IsHasPower("Electro"))
         {
@@ -66,7 +66,21 @@ public class Lightning : AbstractOrb
             {
                 
             }
-            AbstractDungeon.ActionManager.AddToBottom(new );
+            AbstractDungeon.ActionManager.AddToBottom(new DamageAction(tCreature,_info,AttackEffect.None,true));
         }
+        else
+        {
+            //AbstractDungeon.ActionManager.AddToBottom(new DamageAllEnemiesAction(AbstractDungeon.Player,));
+        }
+    }
+
+    public void TriggerEvokeAnimation()
+    {
+
+    }
+
+    public override AbstractOrb MakeCopy()
+    {
+        return new Lightning();
     }
 }

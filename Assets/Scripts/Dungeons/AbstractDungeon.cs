@@ -177,7 +177,19 @@ public abstract class AbstractDungeon
     }
     private AbstractRoom generateRoom(RoomResult _roomType)
     {
-
+        switch (_roomType)
+        {
+            case RoomResult.Elite:
+                return new MonsterRoomElite();
+            case RoomResult.Monster:
+                return new MonsterRoom();
+            case RoomResult.Shop:
+                return new ShopRoom();
+            case RoomResult.Treasure:
+                return new TreasureRoom();
+            default:
+                return new EventRoom();
+        }
     }
     public static MonsterGroup GetMonsters()
     {
