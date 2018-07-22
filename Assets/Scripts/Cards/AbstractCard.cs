@@ -358,10 +358,61 @@ public abstract class AbstractCard : IComparable<AbstractCard>
         tAbstractCard.Misc = Misc;
         return tAbstractCard;
     }
-    
+
     public void TriggerOnCardPlayed(AbstractCard _cardPlayed)
     {
 
+    }
+
+    public void ModifyCostForTurn(int _amount)
+    {
+        if (CostForTurn > 0)
+        {
+            CostForTurn += _amount;
+            if (CostForTurn < 0)
+            {
+                CostForTurn = 0;
+            }
+
+            if (CostForTurn != Cost)
+            {
+                IsCostModifiedForTurn = true;
+            }
+        }
+    }
+
+    public void ModifyCostForCombat(int _amount)
+    {
+        if (CostForTurn > 0)
+        {
+            CostForTurn += _amount;
+            if (CostForTurn < 0)
+            {
+                CostForTurn = 0;
+            }
+
+            if (Cost != CostForTurn)
+            {
+                IsCostModified = true;
+            }
+
+            Cost = CostForTurn;
+        }
+
+        else
+        {
+            Cost += _amount;
+            if (Cost < 0)
+            {
+                Cost = 0;
+            }
+
+            CostForTurn = 0;
+            if (Cost != CostForTurn)
+            {
+                IsCostModified = true;
+            }
+        }
     }
 
     public void ResetAttributes()

@@ -10,7 +10,7 @@ public abstract class AbstractMonster : AbstractCreature
     public static long StingerID;
     private const float deathTime = 1.8f;
     private const float escapeTime = 3f;
-    protected const byte Escape = 99;
+    protected const byte escape = 99;
     protected const byte Roll = 98;
     public float DeathTimer;
     protected Dictionary<byte, string> MoveSet;
@@ -384,6 +384,16 @@ public abstract class AbstractMonster : AbstractCreature
 
     public static void PlayBossStinger()
     {
+
+    }
+
+    public void DeathReact()
+    {
+
+    }
+    public  void Escape()
+    {
+        IsEscaping = true;
 
     }
     public void Die()
