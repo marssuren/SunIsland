@@ -103,6 +103,17 @@
     <Compile Include="Assets\Scripts\Actions\Common\RollMoveAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\SetDontTriggerAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Common\SetMoveAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\ShowMoveNameAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\ShuffleAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\SpawnMonsterAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Common\SuicideAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\AggregateEnergyAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\AllCostToHandAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\AnimateOrbAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\BarrageAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\BlasterAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\CacheAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\Defect\ChannelAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Defect\LightningOrbEvokeAction.cs" />
     <Compile Include="Assets\Scripts\Actions\Defect\LightningOrbPassiveAction.cs" />
     <Compile Include="Assets\Scripts\Actions\GameActionManager.cs" />
