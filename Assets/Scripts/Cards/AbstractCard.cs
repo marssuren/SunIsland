@@ -364,6 +364,129 @@ public abstract class AbstractCard : IComparable<AbstractCard>
 
     }
 
+    public void TriggerOnExhaust()
+    {
+
+    }
+
+    public void ApplyPowers()
+    {
+
+    }
+
+    private void applyPowersToBlock()
+    {
+        IsBlockModified = false;
+        float tValue = BaseBlock;
+        for (int i = 0; i < AbstractDungeon.Player.powers.Count; i++)
+        {
+            AbstractPower tPower = AbstractDungeon.Player.powers[i];
+            tValue = tPower.ModifyBlock(tValue);
+            if (BaseBlock != Math.Floor(tValue))
+            {
+                IsBlockModified = true;
+            }
+        }
+
+        if (tValue < 0f)
+        {
+            tValue = 0;
+        }
+
+        Block = (int)Math.Floor(tValue);
+    }
+
+    public void CalculateCardDamage(AbstractMonster _monster)
+    {
+        applyPowersToBlock();
+        AbstractPlayer tPlayer = AbstractDungeon.Player;
+        IsDamageModified = false;
+        if (!IsMultiDamage && null != _monster)
+        {
+            float tValue = BaseDamage;
+            if (this is PerfectStrike)
+            {
+                if (IsUpgraded)
+                {
+                    tValue += 3 * PerfectStrike.CountCards();
+                }
+                else
+                {
+                    tValue += 2 * PerfectStrike.CountCards();
+                }
+
+                if (BaseDamage != (int)tValue)
+                {
+                    IsDamageModified = true;
+                }
+            }
+
+            AbstractPower tPower;
+            for (int i = 0; i < tPlayer.powers.Count; i++)
+            {
+                tPower = tPlayer.powers[i];
+                if (this is HeavyBlade && tPlayer is StrengthPower)     //(升级后的)重刃计算(5)3倍伤害      
+                {
+                    if (IsUpgraded)
+                    {
+                        tValue = tPower.AtDamageGive(tValue, DamageTypeForTurn);
+                        tValue = tPower.AtDamageGive(tValue, DamageTypeForTurn);
+                    }
+                    tValue = tPower.AtDamageGive(tValue, DamageTypeForTurn);
+                    tValue = tPower.AtDamageGive(tValue, DamageTypeForTurn);
+                }
+                tValue = tPower.AtDamageGive(tValue, DamageTypeForTurn);
+                if (BaseDamage != (int)tValue)
+                {
+                    IsDamageModified = true;
+                }
+            }
+            if (tValue < 0f)
+            {
+                tValue = 0f;
+            }
+            Damage = (int)Math.Floor(tValue);
+        }
+        else
+        {
+            List<AbstractMonster> tMonster = AbstractDungeon.GetCurrRoom().Monsters.Monsters;
+            float[] tValue = new float[tMonster.Count];
+            for (int i = 0; i < tValue.Length; i++)
+            {
+                tValue[i] = BaseDamage;
+            }
+
+            AbstractPower tPower;
+            for (int i = 0; i < tValue.Length; i++)
+            {
+                for (int j = 0; j < tPlayer.powers.Count; j++)
+                {
+                    tPower = tPlayer.powers[i];
+                    tValue[i] = tPower.AtDamageGive(tValue[i], DamageTypeForTurn);
+                    if (BaseDamage != tValue[i])
+                    {
+                        IsDamageModified = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < tValue.Length; i++)
+            {
+                if (tValue[i] < 0)
+                {
+                    tValue[i] = 0;
+                }
+            }
+            MultiDamage = new int[tValue.Length];
+            for (int i = 0; i < tValue.Length; i++)
+            {
+                MultiDamage[i] = (int)Math.Floor(tValue[i]);
+            }
+
+            Damage = MultiDamage[0];
+        }
+
+    }
     public void ModifyCostForTurn(int _amount)
     {
         if (CostForTurn > 0)
