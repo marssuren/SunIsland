@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunIsland", "Assembly-CSharp.csproj", "{1E89E264-A610-3341-00A1-822706982C57}"
 EndProject
 Global

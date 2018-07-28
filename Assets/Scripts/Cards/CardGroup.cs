@@ -21,14 +21,70 @@ public class CardGroup
 		//{
 		//	AbstractCard tAbstractCard =
 		//}
-		if(_cardGroup.Group.Count > 0)
+		if (_cardGroup.Group.Count > 0)
 		{
-			for(int i = 0; i < _cardGroup.Group.Count; i++)
+			for (int i = 0; i < _cardGroup.Group.Count; i++)
 			{
 				Group.Add(_cardGroup.Group[i]);
 			}
 		}
 
+	}
+
+	public void AddToHand(AbstractCard _card)
+	{
+		Group.Add(_card);
+	}
+
+	public void RefreshHandLayout()
+	{
+		if (AbstractDungeon.GetCurrRoom().Monsters==null||!AbstractDungeon.GetCurrRoom().Monsters.AreMonstersBasicallyDead())
+		{
+			AbstractOrb tOrb;
+			for (int i = 0; i < AbstractDungeon.Player.Orbs.Count; i++)
+			{
+				tOrb = AbstractDungeon.Player.Orbs[i];
+				tOrb.HideEvokeValues();
+			}
+
+			for (int i = 0; i < AbstractDungeon.Player.Relics.Count; i++)
+			{
+				AbstractDungeon.Player.Relics[i].OnRefreshHand();
+			}
+		}
+	}
+
+	public void AddToTop(AbstractCard _card)
+	{
+		Group.Add(_card);
+	}
+
+	public void AddToBottom(AbstractCard _card)
+	{
+		Group.Insert(0, _card);
+	}
+
+	public void AddToRandomSpot(AbstractCard _card)
+	{
+		if (Group.Count == 0)
+		{
+			Group.Add(_card);
+		}
+
+		else
+		{
+			Group.Insert(AbstractDungeon.CardRandomRng.Next(0, Group.Count - 1), _card);
+		}
+	}
+
+	public AbstractCard GetTopCard()
+	{
+		return Group[Group.Count - 1];
+	}
+
+	public AbstractCard GetNCardFromTop(int _num)
+	{
+		return Group[Group.Count - 1 - _num];
 	}
 	public bool IsContains(AbstractCard _card)
 	{
@@ -41,10 +97,10 @@ public class CardGroup
 	public CardGroup GetUpgradableCards()
 	{
 		CardGroup tCardGroup = new CardGroup(CardGroupType.Unspecified);
-		for(int i = 0; i < Group.Count; i++)
+		for (int i = 0; i < Group.Count; i++)
 		{
 			AbstractCard tCard = Group[i];
-			if(tCard.IsCanUpgrade())
+			if (tCard.IsCanUpgrade())
 			{
 				tCardGroup.Group.Add(tCard);
 			}
@@ -54,9 +110,9 @@ public class CardGroup
 	public bool HasUpgradableCards()
 	{
 		AbstractCard tAbstractCard;
-		for(int i = 0; i < Group.Count; i++)
+		for (int i = 0; i < Group.Count; i++)
 		{
-			if(Group[i].IsCanUpgrade())
+			if (Group[i].IsCanUpgrade())
 			{
 				return true;
 			}
@@ -66,10 +122,10 @@ public class CardGroup
 	public CardGroup GetPurgeableCards()    //可净化
 	{
 		CardGroup tCardGroup = new CardGroup(CardGroupType.Unspecified);
-		for(int i = 0; i < Group.Count; i++)
+		for (int i = 0; i < Group.Count; i++)
 		{
 			AbstractCard tAbstractCard = Group[i];
-			if(!tAbstractCard.CardID.Equals("Necronomicurse") && !tAbstractCard.CardID.Equals("AscendersBane"))
+			if (!tAbstractCard.CardID.Equals("Necronomicurse") && !tAbstractCard.CardID.Equals("AscendersBane"))
 			{
 				tCardGroup.Group.Add(tAbstractCard);
 			}
@@ -82,15 +138,15 @@ public class CardGroup
 	}
 	public void TriggerOnOtherCardPlayed(AbstractCard _usedCard)
 	{
-		for(int i = 0; i < Group.Count; i++)
+		for (int i = 0; i < Group.Count; i++)
 		{
 			AbstractCard tCard = Group[i];
-			if(tCard != _usedCard)
+			if (tCard != _usedCard)
 			{
 				tCard.TriggerOnCardPlayed(_usedCard);
 			}
 		}
-		for(int i = 0; i < AbstractDungeon.Player.powers.Count; i++)
+		for (int i = 0; i < AbstractDungeon.Player.powers.Count; i++)
 		{
 			AbstractPower tAbstractPower = AbstractDungeon.Player.powers[i];
 			tAbstractPower.OnAfterCardPlayed(_usedCard);
@@ -98,7 +154,7 @@ public class CardGroup
 	}
 	private void sortWithComparator(IComparer<AbstractCard> _comparable, bool _isAscending = false)
 	{
-		if(_isAscending)
+		if (_isAscending)
 		{
 			Group.Sort(_comparable);
 		}
@@ -110,12 +166,12 @@ public class CardGroup
 	}
 	public void SortByRarity(bool _isAscending)
 	{
-		sortWithComparator(new CardRarityComparator(),_isAscending);
+		sortWithComparator(new CardRarityComparator(), _isAscending);
 	}
 	public void SortByRarityPlusStatusCardType(bool _isAscending)
 	{
-		sortWithComparator(new CardTypeComparator(),_isAscending);
-        sortWithComparator(new StatusCardLastComparator(),true);
+		sortWithComparator(new CardTypeComparator(), _isAscending);
+		sortWithComparator(new StatusCardLastComparator(), true);
 	}
 
 }
@@ -126,11 +182,11 @@ public class CardGroup
 //		int _card0Rank = 0;
 //		//if (Unlock)
 //		//{
-			
+
 //		//}
 //	}
 //}
-public class CardTypeComparator:IComparer<AbstractCard>
+public class CardTypeComparator : IComparer<AbstractCard>
 {
 	public int Compare(AbstractCard _card0, AbstractCard _card1)
 	{
@@ -141,7 +197,7 @@ public class StatusCardLastComparator : IComparer<AbstractCard>
 {
 	public int Compare(AbstractCard _card0, AbstractCard _card1)
 	{
-		if (_card0.Type==CardType.Status&&_card1.Type!=CardType.Status)
+		if (_card0.Type == CardType.Status && _card1.Type != CardType.Status)
 		{
 			return 1;
 		}
